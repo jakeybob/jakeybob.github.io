@@ -2,18 +2,22 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://jakeybob.github.io/posts/post-with-code/index.html</loc>
-    <lastmod>2022-12-31T22:15:48.506Z</lastmod>
+    <lastmod>2023-01-02T21:55:11.405Z</lastmod>
   </url>
   <url>
     <loc>https://jakeybob.github.io/posts/welcome/index.html</loc>
-    <lastmod>2022-12-31T22:15:48.752Z</lastmod>
+    <lastmod>2023-01-02T21:55:11.658Z</lastmod>
   </url>
   <url>
     <loc>https://jakeybob.github.io/index.html</loc>
-    <lastmod>2022-12-31T22:15:49.100Z</lastmod>
+    <lastmod>2023-01-02T21:55:11.960Z</lastmod>
   </url>
   <url>
     <loc>https://jakeybob.github.io/about.html</loc>
-    <lastmod>2022-12-31T22:15:49.348Z</lastmod>
+    <lastmod>2023-01-02T21:55:12.205Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jakeybob.github.io/posts.html</loc>
+    <lastmod>2023-01-02T21:55:12.462Z</lastmod>
   </url>
 </urlset>
