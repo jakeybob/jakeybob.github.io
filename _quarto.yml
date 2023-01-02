@@ -4,6 +4,7 @@ execute:
   freeze: auto
 website:
   title: "bobt.me"
+  site-url: "https://bobt.me"
   navbar:
     right:
       - posts.qmd
@@ -13,10 +14,13 @@ website:
         href: https://twitter.com/jakeybob
       - icon: mastodon
         href: https://mastodon.scot/@jakeybob
+  twitter-card:
+    creator: "@jakeybob"
+  open-graph:
+    locale: en_GB
+    site-name: bobt.me
 format:
   html:
-    theme: cosmo
+    theme: cerulean
     css: styles.css
-
-
 
