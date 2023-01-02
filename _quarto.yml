@@ -1,15 +1,18 @@
 project:
   type: website
-
+execute:
+  freeze: auto
 website:
-  title: "bob"
+  title: "bobt.me"
   navbar:
     right:
-      - about.qmd
+      - posts.qmd
       - icon: github
         href: https://github.com/jakeybob
       - icon: twitter
         href: https://twitter.com/jakeybob
+      - icon: mastodon
+        href: https://mastodon.scot/@jakeybob
 format:
   html:
     theme: cosmo
