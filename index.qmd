@@ -1,28 +1,78 @@
 ---
 title: "about"
-image: profile.jpg
+image: profile.png
 about:
-  template: jolla
+  template: trestles
+  image-width: 10em
+  # image-shape: round
   links:
-    - icon: twitter
-      text: Twitter
-      href: https://twitter.com/jakeybob
-    - icon: mastodon
-      text: Mastodon
-      href: https://mastodon.scot/@jakeybob
-    - icon: linkedin
-      text: LinkedIn
-      href: https://www.linkedin.com/in/jbobtaylor/
     - icon: github
       text: GitHub
       href: https://github.com/jakeybob
-    - icon: orcid
+      aria-label: Bob Taylor's GitHub
+    - icon: linkedin
+      text: LinkedIn
+      href: https://www.linkedin.com/in/jbobtaylor/
+      aria-label: Bob Taylor's LinkedIn
+    - icon: file-text-fill
       text: ORCiD
       href: https://orcid.org/0000-0003-4314-2685
+      aria-label: Bob Taylor's list of publications on ORCiD
+    - icon: mastodon
+      text: Mastodon
+      href: https://mastodon.scot/@jakeybob
+      aria-label: Bob Taylor's Mastodon
+    - icon: twitter
+      text: Twitter
+      href: https://twitter.com/jakeybob
+      aria-label: Bob Taylor's Twitter
 page-layout: full
 title-block-banner: true
 ---
 
-This is the front page.
+# Bob Taylor
 
-<a rel="me" href="https://mastodon.scot/@jakeybob">&nbsp;</a>
+
+Hullo! This is one of those pages that people have, which is kind of like a CV or resumé. In any case, my face is to the left, some general information is below, and more details can be found by tapping on the links.
+
+---
+
+## Summary
+
+I currently work at [Public Health Scotland](https://publichealthscotland.scot) as an analyst, with experience in various public health topics – COVID-19 epidemiology / modelling, socio-economic analysis, dashboards / visualisation, GIS / spatio-temporal research, agent-based modelling etc. I come from an astrophysics background, so I also have extremely general transferrable skills like non-linear optical field simulation, control systems, digital electronics, mechanical engineering / CAD, ultra-sensitive laser interferometry, and hanging-upside-down-in vacuum-tanks-while-soldering-things.
+
+I mostly code in *R* and *Julia*, and have used *Python* and *MATLAB* extensively.
+
+## Experience
+
+**Public Health Scotland** 
+
+Senior Information Analyst | Oct 2019 – present
+
+Information Analyst | Aug 2017 – Oct 2019
+
+**SgurrEnergy** 
+
+Software Development Consultant | Feb 2011 – June 2011
+
+**Max-Planck-Institut für Gravitationsphysik (Albert-Einstein-Institut)** 
+
+Post-doctoral Research Assistant | Jun 2008 – Aug 2010
+
+**Institute for Gravitational Research (University of Glasgow)** 
+
+Post-grad / Research Assistant | Oct 2003 – Apr 2008
+
+
+## Education
+
+**University of Glasgow**
+
+Ph.D *Interferometric experiments towards advanced gravitational wave detectors* | 2003 – 2008
+
+B.Sc. Hons *Physics and Astronomy* | 1999 – 2003
+
+
+<!-- mastodon rel link for account authentication -->
+<a rel="me" href="https://mastodon.scot/@jakeybob"></a>
+<!-- mastodon rel link for account authentication -->

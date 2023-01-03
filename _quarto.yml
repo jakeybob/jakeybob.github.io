@@ -1,19 +1,29 @@
 project:
   type: website
+  render:
+    - "*.qmd"
+    - "!draft*.qmd"
+    - "!ignore*.qmd"
 execute:
   freeze: auto
 website:
   title: "bobt.me"
   site-url: "https://bobt.me"
+  favicon: favicon.png
   navbar:
+    # background: dark
+    background: primary
     right:
       - posts.qmd
       - icon: github
         href: https://github.com/jakeybob
-      - icon: twitter
-        href: https://twitter.com/jakeybob
+        aria-label: Bob Taylor's GitHub
       - icon: mastodon
         href: https://mastodon.scot/@jakeybob
+        aria-label: Bob Taylor's Mastodon
+      - icon: twitter
+        href: https://twitter.com/jakeybob
+        aria-label: Bob Taylor's Twitter
   twitter-card:
     creator: "@jakeybob"
   open-graph:
@@ -21,6 +31,6 @@ website:
     site-name: bobt.me
 format:
   html:
-    theme: cerulean
+    theme: pulse
     css: styles.css
 
