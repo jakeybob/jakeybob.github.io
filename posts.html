@@ -25,6 +25,7 @@ ul.task-list{list-style: none;}
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<link href="./favicon.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-listing/list.min.js"></script>
 <script src="site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="site_libs/quarto-html/quarto.js"></script>
@@ -65,9 +66,9 @@ ul.task-list{list-style: none;}
     }
 
     const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-title','listing-author','listing-date','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
+      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description","listing-categories"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -89,13 +90,11 @@ ul.task-list{list-style: none;}
 
 <link rel="stylesheet" href="styles.css">
 <link rel="alternate" type="application/rss+xml" title="bobt.me" href="posts.xml"><meta property="og:title" content="bobt.me - blog">
-<meta property="og:image" content="https://jakeybob.github.io/posts/welcome/thumbnail.jpg">
 <meta property="og:site-name" content="bobt.me">
 <meta property="og:locale" content="en_GB">
 <meta name="twitter:title" content="bobt.me - blog">
-<meta name="twitter:image" content="https://jakeybob.github.io/posts/welcome/thumbnail.jpg">
 <meta name="twitter:creator" content="@jakeybob">
-<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:card" content="summary">
 </head>
 
 <body class="nav-fixed">
@@ -116,17 +115,17 @@ ul.task-list{list-style: none;}
     <a class="nav-link active" href="./posts.html" aria-current="page">blog</a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/jakeybob"><i class="bi bi-github" role="img">
+    <a class="nav-link" href="https://github.com/jakeybob"><i class="bi bi-github" role="img" aria-label="Bob Taylor's GitHub">
 </i> 
  </a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://twitter.com/jakeybob"><i class="bi bi-twitter" role="img">
+    <a class="nav-link" href="https://mastodon.scot/@jakeybob"><i class="bi bi-mastodon" role="img" aria-label="Bob Taylor's Mastodon">
 </i> 
  </a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://mastodon.scot/@jakeybob"><i class="bi bi-mastodon" role="img">
+    <a class="nav-link" href="https://twitter.com/jakeybob"><i class="bi bi-twitter" role="img" aria-label="Bob Taylor's Twitter">
 </i> 
  </a>
   </li>  
@@ -157,7 +156,7 @@ ul.task-list{list-style: none;}
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(2)</span></div><div class="category" data-category="analysis">analysis <span class="quarto-category-count">(1)</span></div><div class="category" data-category="code">code <span class="quarto-category-count">(1)</span></div><div class="category" data-category="news">news <span class="quarto-category-count">(2)</span></div></div></div>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(3)</span></div><div class="category" data-category="Julia">Julia <span class="quarto-category-count">(2)</span></div><div class="category" data-category="R">R <span class="quarto-category-count">(1)</span></div><div class="category" data-category="agent-based">agent-based <span class="quarto-category-count">(1)</span></div><div class="category" data-category="chaos">chaos <span class="quarto-category-count">(1)</span></div><div class="category" data-category="code">code <span class="quarto-category-count">(3)</span></div><div class="category" data-category="epidemiology">epidemiology <span class="quarto-category-count">(1)</span></div><div class="category" data-category="fluids">fluids <span class="quarto-category-count">(1)</span></div><div class="category" data-category="modelling">modelling <span class="quarto-category-count">(3)</span></div></div></div>
 <!-- main -->
 <main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
 
@@ -168,83 +167,127 @@ ul.task-list{list-style: none;}
 
 
 
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="news,code,analysis" data-listing-date-sort="1672444800000" data-listing-file-modified-sort="1672528762752" data-listing-reading-time-sort="0.035">
-<div class="thumbnail">
-<p><a href="./posts/post-with-code/index.html"> <img src="./posts/post-with-code/image.jpg" class="thumnail-image"> </a></p>
-</div>
-<div class="body">
-<a href="./posts/post-with-code/index.html">
-<h3 class="no-anchor listing-title">
-Post With Code
-</h3>
-<div class="listing-subtitle">
-
-</div>
-</a>
+<div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
+<div class="list grid quarto-listing-cols-3">
+<div class="g-col-1" data-index="0" data-categories="modelling,code,Julia,agent-based,epidemiology" data-listing-date-sort="1672704000000" data-listing-file-modified-sort="1672764329592" data-listing-reading-time-sort="0.375">
+<a href="./posts/20230103_abm_dsap/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="./posts/20230103_abm_dsap/pics/case-1.png" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Agent-Based Frippery
+</h5>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('news'); return false;">
-news
+<div class="listing-category" onclick="window.quartoListingCategory('modelling'); return false;">
+modelling
 </div>
 <div class="listing-category" onclick="window.quartoListingCategory('code'); return false;">
 code
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('analysis'); return false;">
-analysis
+<div class="listing-category" onclick="window.quartoListingCategory('Julia'); return false;">
+Julia
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('agent-based'); return false;">
+agent-based
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('epidemiology'); return false;">
+epidemiology
 </div>
 </div>
-<a href="./posts/post-with-code/index.html">
-<div class="listing-description">
-This is a post with executable code.
+<div class="card-text listing-description">
+Recently I got the chance to investigate how to write agent-based models using Julia, and the Agents.jl library. Lots more detail (as well as code etc) here … but it was pretty easy to set up a simulation of a populated space, include pathfinding for agents…
 </div>
-</a>
-</div>
-<div class="metadata">
-<a href="./posts/post-with-code/index.html">
-<div class="listing-date">
-Dec 31, 2022
-</div>
+<div class="card-attribution card-text-small justify">
 <div class="listing-author">
-Harlow Malloc
+Bob
+</div>
+<div class="listing-date">
+Jan 3, 2023
+</div>
+</div>
+</div>
 </div>
 </a>
 </div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-categories="news" data-listing-date-sort="1672185600000" data-listing-file-modified-sort="1672528762752" data-listing-reading-time-sort="0.16">
-<div class="thumbnail">
-<p><a href="./posts/welcome/index.html"> <img src="./posts/welcome/thumbnail.jpg" class="thumnail-image"> </a></p>
-</div>
-<div class="body">
-<a href="./posts/welcome/index.html">
-<h3 class="no-anchor listing-title">
-Welcome To My Blog
-</h3>
-<div class="listing-subtitle">
-
-</div>
-</a>
+<div class="g-col-1" data-index="1" data-categories="modelling,code,R,chaos" data-listing-date-sort="1672531200000" data-listing-file-modified-sort="1672765452483" data-listing-reading-time-sort="2.69">
+<a href="./posts/20230101_clifford_attractor/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="./posts/20230101_clifford_attractor/pics/pic_606.png" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Clifford Attractor
+</h5>
 <div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('news'); return false;">
-news
+<div class="listing-category" onclick="window.quartoListingCategory('modelling'); return false;">
+modelling
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('code'); return false;">
+code
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('R'); return false;">
+R
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('chaos'); return false;">
+chaos
 </div>
 </div>
-<a href="./posts/welcome/index.html">
-<div class="listing-description">
-This is the first post in a Quarto blog. Welcome!
+<div class="card-text listing-description">
+Inspired by this blog post. The <em>R</em> code below creates the individual video frames (a Clifford attractor where one of the four parameters is stepped along with the frame count), which are then knitted together using <em>FFMPEG</em>.
 </div>
-</a>
-</div>
-<div class="metadata">
-<a href="./posts/welcome/index.html">
-<div class="listing-date">
-Dec 28, 2022
-</div>
+<div class="card-attribution card-text-small justify">
 <div class="listing-author">
-Tristan O’Malley
+Bob
+</div>
+<div class="listing-date">
+Jan 1, 2023
+</div>
+</div>
+</div>
 </div>
 </a>
 </div>
+<div class="g-col-1" data-index="2" data-categories="modelling,code,Julia,fluids" data-listing-date-sort="1672358400000" data-listing-file-modified-sort="1672765292051" data-listing-reading-time-sort="0.22">
+<a href="./posts/20221230_turbulence/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="./posts/20221230_turbulence/pics/turbulence.jpg" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Kolmogorov Turbulence
+</h5>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('modelling'); return false;">
+modelling
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('code'); return false;">
+code
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Julia'); return false;">
+Julia
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('fluids'); return false;">
+fluids
+</div>
+</div>
+<div class="card-text listing-description">
+This is a quck post to check that tweet embedding works sensibly.
+</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+Bob
+</div>
+<div class="listing-date">
+Dec 30, 2022
+</div>
+</div>
+</div>
+</div>
+</a>
 </div>
 </div>
 <div class="listing-no-matching d-none">

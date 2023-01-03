@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.0.38">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Bob">
+<meta name="dcterms.date" content="2023-01-01">
+
+<title>bobt.me - Clifford Attractor</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../favicon.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+<meta property="og:title" content="bobt.me - Clifford Attractor">
+<meta property="og:description" content="Inspired by this blog post.">
+<meta property="og:image" content="https://jakeybob.github.io/posts/20230101_clifford_attractor/pics/pic_606.png">
+<meta property="og:site-name" content="bobt.me">
+<meta property="og:locale" content="en_GB">
+<meta property="og:image:height" content="1080">
+<meta property="og:image:width" content="1080">
+<meta name="twitter:title" content="bobt.me - Clifford Attractor">
+<meta name="twitter:description" content="Inspired by this blog post.">
+<meta name="twitter:image" content="https://jakeybob.github.io/posts/20230101_clifford_attractor/pics/pic_606.png">
+<meta name="twitter:creator" content="@jakeybob">
+<meta name="twitter:image-height" content="1080">
+<meta name="twitter:image-width" content="1080">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="nav-fixed fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">bobt.me</span>
+  </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../posts.html">blog</a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/jakeybob"><i class="bi bi-github" role="img" aria-label="Bob Taylor's GitHub">
+</i> 
+ </a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://mastodon.scot/@jakeybob"><i class="bi bi-mastodon" role="img" aria-label="Bob Taylor's Mastodon">
+</i> 
+ </a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/jakeybob"><i class="bi bi-twitter" role="img" aria-label="Bob Taylor's Twitter">
+</i> 
+ </a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Clifford Attractor</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">modelling</div>
+                <div class="quarto-category">code</div>
+                <div class="quarto-category">R</div>
+                <div class="quarto-category">chaos</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Bob </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">January 1, 2023</p>
+      </div>
+    </div>
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+<p>Inspired by <a href="https://fronkonstin.com/2017/11/07/drawing-10-million-points-with-ggplot-clifford-attractors/">this</a> blog post. The <em>R</em> code below creates the individual video frames (a <a href="http://paulbourke.net/fractals/clifford/">Clifford</a> attractor where one of the four parameters is stepped along with the frame count), which are then knitted together using <em>FFMPEG</em>.</p>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/wK6wuTOnhbM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="">
+</iframe>
+<div class="cell">
+<details>
+<summary>show the code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">library</span>(Rcpp)</span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="fu">library</span>(foreach)</span>
+<span id="cb1-5"><a href="#cb1-5"></a><span class="fu">library</span>(doParallel)</span>
+<span id="cb1-6"><a href="#cb1-6"></a><span class="fu">registerDoParallel</span>(parallel<span class="sc">::</span><span class="fu">detectCores</span>())</span>
+<span id="cb1-7"><a href="#cb1-7"></a></span>
+<span id="cb1-8"><a href="#cb1-8"></a>pic_dir <span class="ot">&lt;-</span> <span class="st">"pics"</span></span>
+<span id="cb1-9"><a href="#cb1-9"></a>output_video <span class="ot">&lt;-</span> <span class="st">"output.mp4"</span></span>
+<span id="cb1-10"><a href="#cb1-10"></a></span>
+<span id="cb1-11"><a href="#cb1-11"></a>opt <span class="ot">=</span> <span class="fu">theme</span>(<span class="at">legend.position  =</span> <span class="st">"none"</span>,</span>
+<span id="cb1-12"><a href="#cb1-12"></a>            <span class="at">panel.background =</span> <span class="fu">element_rect</span>(<span class="at">fill=</span><span class="st">"black"</span>),</span>
+<span id="cb1-13"><a href="#cb1-13"></a>            <span class="at">plot.margin =</span> <span class="fu">margin</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="sc">-</span><span class="dv">8</span>, <span class="sc">-</span><span class="dv">8</span>, <span class="at">unit =</span> <span class="st">"pt"</span>),</span>
+<span id="cb1-14"><a href="#cb1-14"></a>            <span class="at">axis.ticks       =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb1-15"><a href="#cb1-15"></a>            <span class="at">panel.grid       =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb1-16"><a href="#cb1-16"></a>            <span class="at">axis.title       =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb1-17"><a href="#cb1-17"></a>            <span class="at">axis.text        =</span> <span class="fu">element_blank</span>())</span>
+<span id="cb1-18"><a href="#cb1-18"></a></span>
+<span id="cb1-19"><a href="#cb1-19"></a><span class="fu">cppFunction</span>(<span class="st">'DataFrame createTrajectory(int n, double x0, double y0, </span></span>
+<span id="cb1-20"><a href="#cb1-20"></a><span class="st">            double a, double b, double c, double d) {</span></span>
+<span id="cb1-21"><a href="#cb1-21"></a><span class="st">            // create the columns</span></span>
+<span id="cb1-22"><a href="#cb1-22"></a><span class="st">            NumericVector x(n);</span></span>
+<span id="cb1-23"><a href="#cb1-23"></a><span class="st">            NumericVector y(n);</span></span>
+<span id="cb1-24"><a href="#cb1-24"></a><span class="st">            x[0]=x0;</span></span>
+<span id="cb1-25"><a href="#cb1-25"></a><span class="st">            y[0]=y0;</span></span>
+<span id="cb1-26"><a href="#cb1-26"></a><span class="st">            for(int i = 1; i &lt; n; ++i) {</span></span>
+<span id="cb1-27"><a href="#cb1-27"></a><span class="st">            x[i] = sin(a*y[i-1])+c*cos(a*x[i-1]);</span></span>
+<span id="cb1-28"><a href="#cb1-28"></a><span class="st">            y[i] = sin(b*x[i-1])+d*cos(b*y[i-1]);</span></span>
+<span id="cb1-29"><a href="#cb1-29"></a><span class="st">            }</span></span>
+<span id="cb1-30"><a href="#cb1-30"></a><span class="st">            // return a new data frame</span></span>
+<span id="cb1-31"><a href="#cb1-31"></a><span class="st">            return DataFrame::create(_["x"]= x, _["y"]= y);</span></span>
+<span id="cb1-32"><a href="#cb1-32"></a><span class="st">            }</span></span>
+<span id="cb1-33"><a href="#cb1-33"></a><span class="st">            '</span>)</span>
+<span id="cb1-34"><a href="#cb1-34"></a></span>
+<span id="cb1-35"><a href="#cb1-35"></a><span class="co"># attractor parameters</span></span>
+<span id="cb1-36"><a href="#cb1-36"></a>a<span class="ot">=</span><span class="sc">-</span><span class="fl">1.24458046630025</span></span>
+<span id="cb1-37"><a href="#cb1-37"></a>b<span class="ot">=</span><span class="sc">-</span><span class="fl">1.25191834103316</span> </span>
+<span id="cb1-38"><a href="#cb1-38"></a>c<span class="ot">=</span><span class="sc">-</span><span class="fl">1.81590817030519</span> </span>
+<span id="cb1-39"><a href="#cb1-39"></a>d<span class="ot">=</span><span class="sc">-</span><span class="fl">1.90866735205054</span></span>
+<span id="cb1-40"><a href="#cb1-40"></a></span>
+<span id="cb1-41"><a href="#cb1-41"></a><span class="co"># video settings</span></span>
+<span id="cb1-42"><a href="#cb1-42"></a>fps <span class="ot">&lt;-</span> <span class="dv">60</span></span>
+<span id="cb1-43"><a href="#cb1-43"></a>duration_secs <span class="ot">&lt;-</span> <span class="dv">30</span></span>
+<span id="cb1-44"><a href="#cb1-44"></a>frac_change <span class="ot">&lt;-</span> <span class="dv">2</span> <span class="co"># fractional change in "a" param over course of video</span></span>
+<span id="cb1-45"><a href="#cb1-45"></a></span>
+<span id="cb1-46"><a href="#cb1-46"></a>max_a <span class="ot">&lt;-</span> a <span class="sc">+</span> (a<span class="sc">*</span>frac_change<span class="sc">/</span><span class="dv">2</span>)</span>
+<span id="cb1-47"><a href="#cb1-47"></a>min_a <span class="ot">&lt;-</span> a <span class="sc">-</span> (a<span class="sc">*</span>frac_change<span class="sc">/</span><span class="dv">2</span>)</span>
+<span id="cb1-48"><a href="#cb1-48"></a></span>
+<span id="cb1-49"><a href="#cb1-49"></a>a_vec <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from =</span> min_a, <span class="at">to =</span> max_a, <span class="at">by =</span> (a<span class="sc">*</span>frac_change)<span class="sc">/</span>((fps<span class="dv">-1</span>)<span class="sc">*</span>duration_secs)) </span>
+<span id="cb1-50"><a href="#cb1-50"></a></span>
+<span id="cb1-51"><a href="#cb1-51"></a><span class="co"># loop over parameter, write out png</span></span>
+<span id="cb1-52"><a href="#cb1-52"></a><span class="fu">foreach</span> (<span class="at">i =</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(a_vec)) <span class="sc">%dopar%</span> {</span>
+<span id="cb1-53"><a href="#cb1-53"></a>  filename <span class="ot">&lt;-</span> <span class="fu">file.path</span>(pic_dir, <span class="fu">paste0</span>(<span class="st">"pic_"</span>, i, <span class="st">".png"</span>))</span>
+<span id="cb1-54"><a href="#cb1-54"></a>  df <span class="ot">=</span> <span class="fu">createTrajectory</span>(<span class="dv">10000000</span>, <span class="dv">0</span>, <span class="dv">0</span>, a_vec[i], b, c, d)</span>
+<span id="cb1-55"><a href="#cb1-55"></a>  p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df, <span class="fu">aes</span>(x, y)) <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">"white"</span>, <span class="at">shape =</span> <span class="dv">46</span>, <span class="at">alpha =</span> .<span class="dv">3</span>) <span class="sc">+</span> opt</span>
+<span id="cb1-56"><a href="#cb1-56"></a>  </span>
+<span id="cb1-57"><a href="#cb1-57"></a>  <span class="fu">ggsave</span>(<span class="at">plot =</span> p, <span class="at">filename =</span> filename, <span class="at">width =</span> <span class="fl">10.8</span>, <span class="at">height =</span> <span class="fl">10.8</span>, <span class="at">dpi =</span> <span class="dv">100</span>)</span>
+<span id="cb1-58"><a href="#cb1-58"></a>}</span>
+<span id="cb1-59"><a href="#cb1-59"></a></span>
+<span id="cb1-60"><a href="#cb1-60"></a><span class="do">#### FFMPEG ####</span></span>
+<span id="cb1-61"><a href="#cb1-61"></a>command <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">"ffmpeg -y -r "</span>, fps, <span class="st">" -f image2 -s 1080x1080 -i "</span>, pic_dir,</span>
+<span id="cb1-62"><a href="#cb1-62"></a>                  <span class="st">"/pic_%d.png -vcodec libx264 -crf 25 -pix_fmt yuv420p "</span>, output_video)</span>
+<span id="cb1-63"><a href="#cb1-63"></a><span class="fu">system</span>(<span class="at">command =</span> command)</span>
+<span id="cb1-64"><a href="#cb1-64"></a></span>
+<span id="cb1-65"><a href="#cb1-65"></a><span class="co"># unlink(pic_dir, recursive = TRUE) # tidy up</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+
+
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

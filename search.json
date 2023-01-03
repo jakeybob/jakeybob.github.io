@@ -1,37 +1,37 @@
 [
   {
-    "objectID": "posts/post-with-code/index.html",
-    "href": "posts/post-with-code/index.html",
-    "title": "Post With Code",
-    "section": "",
-    "text": "This is a post with executable code."
-  },
-  {
-    "objectID": "posts/welcome/index.html",
-    "href": "posts/welcome/index.html",
-    "title": "Welcome To My Blog",
-    "section": "",
-    "text": "Since this post doesn’t specify an explicit image, the first image in the post will be used in the listing page of posts."
-  },
-  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "about",
     "section": "",
-    "text": "This is the front page."
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "About this blog"
+    "text": "Hullo! This is one of those pages that people have, which is kind of like a CV or resumé. In any case, my face is to the left, some general information is below, and more details can be found by tapping on the links.\n\n\n\nI currently work at Public Health Scotland as an analyst, with experience in various public health topics – COVID-19 epidemiology / modelling, socio-economic analysis, dashboards / visualisation, GIS / spatio-temporal research, agent-based modelling etc. I come from an astrophysics background, so I also have extremely general transferrable skills like non-linear optical field simulation, control systems, digital electronics, mechanical engineering / CAD, ultra-sensitive laser interferometry, and hanging-upside-down-in vacuum-tanks-while-soldering-things.\nI mostly code in R and Julia, and have used Python and MATLAB extensively.\n\n\n\nPublic Health Scotland\nSenior Information Analyst | Oct 2019 – present\nInformation Analyst | Aug 2017 – Oct 2019\nSgurrEnergy\nSoftware Development Consultant | Feb 2011 – June 2011\nMax-Planck-Institut für Gravitationsphysik (Albert-Einstein-Institut)\nPost-doctoral Research Assistant | Jun 2008 – Aug 2010\nInstitute for Gravitational Research (University of Glasgow)\nPost-grad / Research Assistant | Oct 2003 – Apr 2008\n\n\n\nUniversity of Glasgow\nPh.D Interferometric experiments towards advanced gravitational wave detectors | 2003 – 2008\nB.Sc. Hons Physics and Astronomy | 1999 – 2003"
   },
   {
     "objectID": "posts.html",
     "href": "posts.html",
     "title": "blog",
     "section": "",
-    "text": "news\n\n\ncode\n\n\nanalysis\n\n\n\n\n\n\n\n\n\n\n\nDec 31, 2022\n\n\nHarlow Malloc\n\n\n\n\n\n\n  \n\n\n\n\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\n\n\nDec 28, 2022\n\n\nTristan O’Malley\n\n\n\n\n\n\nNo matching items"
+    "text": "modelling\n\n\ncode\n\n\nJulia\n\n\nagent-based\n\n\nepidemiology\n\n\n\n\n\n\n\nBob\n\n\nJan 3, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nmodelling\n\n\ncode\n\n\nR\n\n\nchaos\n\n\n\n\n\n\n\nBob\n\n\nJan 1, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nmodelling\n\n\ncode\n\n\nJulia\n\n\nfluids\n\n\n\n\n\n\n\nBob\n\n\nDec 30, 2022\n\n\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "posts/20221230_turbulence/index.html",
+    "href": "posts/20221230_turbulence/index.html",
+    "title": "Kolmogorov Turbulence",
+    "section": "",
+    "text": "a wee @JuliaLanguage experiment simulating 2D Kolmogorov turbulence (code here: https://t.co/oxSc7UUErA) – surprisingly non-painful😍 pic.twitter.com/KM5LXceOHJ\n\n— Bob Taylor (@jakeybob) April 25, 2022"
+  },
+  {
+    "objectID": "posts/20230101_clifford_attractor/index.html",
+    "href": "posts/20230101_clifford_attractor/index.html",
+    "title": "Clifford Attractor",
+    "section": "",
+    "text": "show the code\nlibrary(Rcpp)\nlibrary(ggplot2)\nlibrary(dplyr)\nlibrary(foreach)\nlibrary(doParallel)\nregisterDoParallel(parallel::detectCores())\n\npic_dir <- \"pics\"\noutput_video <- \"output.mp4\"\n\nopt = theme(legend.position  = \"none\",\n            panel.background = element_rect(fill=\"black\"),\n            plot.margin = margin(0, 0, -8, -8, unit = \"pt\"),\n            axis.ticks       = element_blank(),\n            panel.grid       = element_blank(),\n            axis.title       = element_blank(),\n            axis.text        = element_blank())\n\ncppFunction('DataFrame createTrajectory(int n, double x0, double y0, \n            double a, double b, double c, double d) {\n            // create the columns\n            NumericVector x(n);\n            NumericVector y(n);\n            x[0]=x0;\n            y[0]=y0;\n            for(int i = 1; i < n; ++i) {\n            x[i] = sin(a*y[i-1])+c*cos(a*x[i-1]);\n            y[i] = sin(b*x[i-1])+d*cos(b*y[i-1]);\n            }\n            // return a new data frame\n            return DataFrame::create(_[\"x\"]= x, _[\"y\"]= y);\n            }\n            ')\n\n# attractor parameters\na=-1.24458046630025\nb=-1.25191834103316 \nc=-1.81590817030519 \nd=-1.90866735205054\n\n# video settings\nfps <- 60\nduration_secs <- 30\nfrac_change <- 2 # fractional change in \"a\" param over course of video\n\nmax_a <- a + (a*frac_change/2)\nmin_a <- a - (a*frac_change/2)\n\na_vec <- seq(from = min_a, to = max_a, by = (a*frac_change)/((fps-1)*duration_secs)) \n\n# loop over parameter, write out png\nforeach (i = 1:length(a_vec)) %dopar% {\n  filename <- file.path(pic_dir, paste0(\"pic_\", i, \".png\"))\n  df = createTrajectory(10000000, 0, 0, a_vec[i], b, c, d)\n  p <- ggplot(df, aes(x, y)) + geom_point(color = \"white\", shape = 46, alpha = .3) + opt\n  \n  ggsave(plot = p, filename = filename, width = 10.8, height = 10.8, dpi = 100)\n}\n\n#### FFMPEG ####\ncommand <- paste0(\"ffmpeg -y -r \", fps, \" -f image2 -s 1080x1080 -i \", pic_dir,\n                  \"/pic_%d.png -vcodec libx264 -crf 25 -pix_fmt yuv420p \", output_video)\nsystem(command = command)\n\n# unlink(pic_dir, recursive = TRUE) # tidy up"
+  },
+  {
+    "objectID": "posts/20230103_abm_dsap/index.html",
+    "href": "posts/20230103_abm_dsap/index.html",
+    "title": "Agent-Based Frippery",
+    "section": "",
+    "text": "Video\n2D office simulation\n\n\n… and then use this to record the time and place where infected agents (coloured red in the animation) transmit their disease to uninfected (in blue) agents.\n\n\n\ninfection heatmap"
   }
 ]
