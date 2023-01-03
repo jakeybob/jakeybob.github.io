@@ -1,0 +1,11 @@
+---
+title: "Kolmogorov Turbulence"
+author: "Bob"
+date: "2022-12-30"
+categories: [modelling, code, Julia, fluids]
+image: pics/turbulence.jpg
+---
+
+This is a quck post to check that tweet embedding works sensibly. 
+
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">a wee <a href="https://twitter.com/JuliaLanguage?ref_src=twsrc%5Etfw">@JuliaLanguage</a> experiment simulating 2D Kolmogorov turbulence (code here: <a href="https://t.co/oxSc7UUErA">https://t.co/oxSc7UUErA</a>) – surprisingly non-painful😍 <a href="https://t.co/KM5LXceOHJ">pic.twitter.com/KM5LXceOHJ</a></p>&mdash; Bob Taylor (@jakeybob) <a href="https://twitter.com/jakeybob/status/1518711458187644928?ref_src=twsrc%5Etfw">April 25, 2022</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>

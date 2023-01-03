@@ -1,0 +1,15 @@
+---
+title: "Agent-Based Frippery"
+author: "Bob"
+date: "2023-01-03"
+categories: [modelling, code, Julia, agent-based, epidemiology]
+image: "pics/case-1.png"
+---
+
+Recently I got the chance to investigate how to write agent-based models using Julia, and the Agents.jl library. Lots more detail (as well as code etc) [here](https://github.com/jakeybob/abm-dsap) ... but it was pretty easy to set up a simulation of a populated space, include pathfinding for agents...
+
+![*2D office simulation*](https://user-images.githubusercontent.com/304817/208320163-64145f69-bd68-4c03-965f-f1b978c90e49.mp4)
+
+... and then use this to record the time and place where infected agents (coloured *red* in the animation) transmit their disease to uninfected (in *blue*) agents.
+
+![*infection heatmap*](pics/case-1.png)

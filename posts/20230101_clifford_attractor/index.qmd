@@ -1,0 +1,88 @@
+---
+title: "Clifford Attractor"
+author: "Bob"
+date: "2023-01-01"
+categories: [modelling, code, R, chaos]
+image: pics/pic_606.png
+execute: 
+  eval: false
+format:
+  html:
+    code-fold: true
+    code-overflow: scroll
+    code-summary: show the code
+    code-line-numbers: true
+---
+
+Inspired by [this](https://fronkonstin.com/2017/11/07/drawing-10-million-points-with-ggplot-clifford-attractors/) blog post. The *R* code below creates the individual video frames (a [Clifford](http://paulbourke.net/fractals/clifford/) attractor where one of the four parameters is stepped along with the frame count), which are then knitted together using *FFMPEG*.
+
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/wK6wuTOnhbM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+```{r}
+library(Rcpp)
+library(ggplot2)
+library(dplyr)
+library(foreach)
+library(doParallel)
+registerDoParallel(parallel::detectCores())
+
+pic_dir <- "pics"
+output_video <- "output.mp4"
+
+opt = theme(legend.position  = "none",
+            panel.background = element_rect(fill="black"),
+            plot.margin = margin(0, 0, -8, -8, unit = "pt"),
+            axis.ticks       = element_blank(),
+            panel.grid       = element_blank(),
+            axis.title       = element_blank(),
+            axis.text        = element_blank())
+
+cppFunction('DataFrame createTrajectory(int n, double x0, double y0, 
+            double a, double b, double c, double d) {
+            // create the columns
+            NumericVector x(n);
+            NumericVector y(n);
+            x[0]=x0;
+            y[0]=y0;
+            for(int i = 1; i < n; ++i) {
+            x[i] = sin(a*y[i-1])+c*cos(a*x[i-1]);
+            y[i] = sin(b*x[i-1])+d*cos(b*y[i-1]);
+            }
+            // return a new data frame
+            return DataFrame::create(_["x"]= x, _["y"]= y);
+            }
+            ')
+
+# attractor parameters
+a=-1.24458046630025
+b=-1.25191834103316 
+c=-1.81590817030519 
+d=-1.90866735205054
+
+# video settings
+fps <- 60
+duration_secs <- 30
+frac_change <- 2 # fractional change in "a" param over course of video
+
+max_a <- a + (a*frac_change/2)
+min_a <- a - (a*frac_change/2)
+
+a_vec <- seq(from = min_a, to = max_a, by = (a*frac_change)/((fps-1)*duration_secs)) 
+
+# loop over parameter, write out png
+foreach (i = 1:length(a_vec)) %dopar% {
+  filename <- file.path(pic_dir, paste0("pic_", i, ".png"))
+  df = createTrajectory(10000000, 0, 0, a_vec[i], b, c, d)
+  p <- ggplot(df, aes(x, y)) + geom_point(color = "white", shape = 46, alpha = .3) + opt
+  
+  ggsave(plot = p, filename = filename, width = 10.8, height = 10.8, dpi = 100)
+}
+
+#### FFMPEG ####
+command <- paste0("ffmpeg -y -r ", fps, " -f image2 -s 1080x1080 -i ", pic_dir,
+                  "/pic_%d.png -vcodec libx264 -crf 25 -pix_fmt yuv420p ", output_video)
+system(command = command)
+
+# unlink(pic_dir, recursive = TRUE) # tidy up
+```
+
