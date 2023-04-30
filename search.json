@@ -11,7 +11,7 @@
     "href": "posts.html",
     "title": "blog",
     "section": "",
-    "text": "modelling\n\n\ncode\n\n\nJulia\n\n\nagent-based\n\n\nepidemiology\n\n\n\n\n\n\n\nBob\n\n\nJan 3, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nmodelling\n\n\ncode\n\n\nR\n\n\nchaos\n\n\n\n\n\n\n\nBob\n\n\nJan 1, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nmodelling\n\n\ncode\n\n\nJulia\n\n\nfluids\n\n\n\n\n\n\n\nBob\n\n\nDec 30, 2022\n\n\n\n\n\n\n\n\nNo matching items"
+    "text": "modelling\n\n\nAR\n\n\n\n\n\n\n\nBob\n\n\nApr 30, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nmodelling\n\n\ncode\n\n\nJulia\n\n\nagent-based\n\n\nepidemiology\n\n\n\n\n\n\n\nBob\n\n\nJan 3, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nmodelling\n\n\ncode\n\n\nR\n\n\nchaos\n\n\n\n\n\n\n\nBob\n\n\nJan 1, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nmodelling\n\n\ncode\n\n\nJulia\n\n\nfluids\n\n\n\n\n\n\n\nBob\n\n\nDec 30, 2022\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/20221230_turbulence/index.html",
@@ -33,5 +33,12 @@
     "title": "Agent-Based Frippery",
     "section": "",
     "text": "Video\n2D office simulation\n\n\n… and then use this to record the time and place where infected agents (coloured red in the animation) transmit their disease to uninfected (in blue) agents.\n\n\n\ninfection heatmap"
+  },
+  {
+    "objectID": "posts/20230430_watermelon/index.html",
+    "href": "posts/20230430_watermelon/index.html",
+    "title": "Watermelon 3D",
+    "section": "",
+    "text": "This is a test to see if usdz files display in a nice interactive way… (probably only works on iOS Safari…?)"
   }
 ]
