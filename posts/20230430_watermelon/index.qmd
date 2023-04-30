@@ -1,0 +1,17 @@
+---
+title: "Watermelon 3D Action"
+author: "Bob"
+date: "2023-04-30"
+categories: [modelling, AR]
+image: "pics/watermelons.png"
+---
+
+This is a test to see if `usdz` files display in a nice interactive way... (probably only works on iOS Safari...?)
+
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<a rel="ar" href="pics/watermelon.usdz">
+    <img src="pics/watermelon.jpeg">
+</a>
+</figure>
+</div>
